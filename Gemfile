@@ -10,14 +10,15 @@ gem 'sinatra-flash', :require => 'sinatra/flash'
 
 # Component requirements
 gem 'erubis', "~> 2.7.0"
-gem 'ohm-contrib', :require => "ohm/contrib"
-gem 'ohm', :require => "ohm"
+#gem 'ohm-contrib', :require => "ohm/contrib"
+gem 'redis'
 gem 'json'
 
 # Test requirements
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
+gem 'mini_fb'
 
 # Or Padrino Edge
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'

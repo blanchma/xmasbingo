@@ -1,22 +1,30 @@
 Xmasbingo.controllers  do
-  # get :index, :map => "/foo/bar" do
-  #   session[:foo] = "bar"
-  #   render 'index'
-  # end
+  CLAUS = ['Barbara','Matias','Ricardo','Melina','Juan','Stella','Victoria']
 
-  # get :sample, :map => "/sample/url", :provides => [:any, :js] do
-  #   case content_type
-  #     when :js then ...
-  #     else ...
-  # end
+   get "/" do
+     render "/home.html.erb"
+   end
 
-  # get :foo, :with => :id do
-  #   "Maps to url '/foo/#{params[:id]}'"
-  # end
+   get "bingo" do
+    puts "name: #{params[:name]}"
+    begin
+      result = CLAUS.each do |claus|
+        puts claus
+        if params[:name] =~ Regexp.new(claus,true)
+          if target = REDIS.get(claus)
+            break target
+          else
+            pool = (CLAUS - [claus])
+            target = pool.sample
+            REDIS.set(claus, target)
+            break target
+          end
+        end
+      end
+    rescue Redis::TimeoutError
+      retry
+    end
+    result || "not_found"
+  end
 
-  # get "/example" do
-  #   "Hello world!"
-  # end
-
-  
 end

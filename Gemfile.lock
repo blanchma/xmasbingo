@@ -5,6 +5,7 @@ GEM
       i18n (~> 0.6)
       multi_json (~> 1.0)
     erubis (2.7.0)
+    hashie (1.2.0)
     http_router (0.10.2)
       rack (>= 1.0.0)
       url_mount (~> 0.2.1)
@@ -15,15 +16,12 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     mime-types (1.19)
+    mini_fb (1.2.0)
+      hashie
+      hashie
+      rest-client
+      rest-client
     multi_json (1.4.0)
-    nest (1.1.2)
-      redis
-    ohm (1.2.0)
-      nest (~> 1.0)
-      redis
-      scrivener (~> 0.0.3)
-    ohm-contrib (1.2)
-      ohm (~> 1.2)
     padrino (0.10.7)
       padrino-admin (= 0.10.7)
       padrino-cache (= 0.10.7)
@@ -57,7 +55,8 @@ GEM
       rack
     rake (10.0.2)
     redis (3.0.2)
-    scrivener (0.0.3)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     sinatra (1.3.3)
       rack (~> 1.3, >= 1.3.6)
       rack-protection (~> 1.2)
@@ -78,8 +77,8 @@ PLATFORMS
 DEPENDENCIES
   erubis (~> 2.7.0)
   json
-  ohm
-  ohm-contrib
+  mini_fb
   padrino (= 0.10.7)
   rake
+  redis
   sinatra-flash

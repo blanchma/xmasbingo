@@ -34,6 +34,8 @@ Bundler.require(:default, PADRINO_ENV)
 # Add your before (RE)load hooks here
 #
 Padrino.before_load do
+  uri = URI.parse(ENV["REDISTOGO_URL"] || "redis://redistogo:257bf7163aa8479d817a3347f5d93a89@drum.redistogo.com:10032/")
+  REDIS = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
 end
 
 ##

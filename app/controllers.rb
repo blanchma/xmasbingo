@@ -13,16 +13,16 @@ Xmasbingo.controllers  do
    get "bingo" do
     puts "name: #{params[:name]}"
     begin
-      result = CLAUS.each do |claus|
-        puts claus
+      result = nil
+      CLAUS.each do |claus|
         if params[:name] =~ Regexp.new(claus,true)
           if target = REDIS.get(claus)
-            break target
+            result = target
           else
             pool = (CLAUS - [claus] - [ NON_CLAUSES[claus] ])
             target = pool.sample
             REDIS.set(claus, target)
-            break target
+            result = target
           end
         end
       end

@@ -1,5 +1,10 @@
 Xmasbingo.controllers  do
-  CLAUS = ['Barbara','Matias','Ricardo','Melina','Juan','Stella','Victoria']
+  CLAUS       = ['Barbara','Matias','Ricardo','Melina','Juan','Stella','Victoria']
+  NON_CLAUSES = { 'Barbara' => 'Matias',
+                  'Ricardo' => 'Victoria',
+                  'Melina' => 'Juan',
+                  'Stella' => 'Stella'}
+  NON_CLAUSES = NON_CLAUSES.merge(NON_CLAUSES.invert)
 
    get "/" do
      render "/home.html.erb"
@@ -14,7 +19,7 @@ Xmasbingo.controllers  do
           if target = REDIS.get(claus)
             break target
           else
-            pool = (CLAUS - [claus])
+            pool = (CLAUS - [claus] - [ NON_CLAUSES[claus] ])
             target = pool.sample
             REDIS.set(claus, target)
             break target

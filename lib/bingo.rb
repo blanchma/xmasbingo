@@ -24,16 +24,14 @@ class Bingo
 
   def toss
     begin
-      @partaker = find_partaker
+      @partaker = find_partaker()
       if @partaker
-        if target = REDIS.get(@partaker)
+        if target = find_toss()
           result = target
         else
-          pool = pool_availables
-          target = pool.sample
-          REDIS.set(@partaker, target)
-          REDIS.srem "targets",target
-          result = target
+          @target = raffle()
+          save_toss
+          result = @target
         end
       else
         result = "not_found"
@@ -45,11 +43,22 @@ class Bingo
   end
 
   private
-  def pool_availables
+  def find_toss
+    REDIS.get(@partaker)
+  end
+
+  def save_toss
+    REDIS.set(@partaker, @target)
+    REDIS.srem "targets",@target
+  end
+
+  def raffle
+    rafle = nil
     availables = REDIS.smembers "targets"
     pool = availables - [@partaker] - [ NOT_ALLOWED_MATCHS[@partaker] ]
-    10.times { pool.shuffle! }
-    shuffle
+    (Random.new(Time.now.to_i).rand(5)+1).times {  pool.shuffle!  }
+    (Random.new(Time.now.to_i).rand(10)+1).times {  raffle = pool.shuffle!  }
+    raffle
   end
 
   def find_partaker

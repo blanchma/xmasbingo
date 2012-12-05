@@ -21,6 +21,7 @@ GEM
       hashie
       rest-client
       rest-client
+    minitest (2.6.2)
     multi_json (1.4.0)
     padrino (0.10.7)
       padrino-admin (= 0.10.7)
@@ -78,6 +79,7 @@ DEPENDENCIES
   erubis (~> 2.7.0)
   json
   mini_fb
+  minitest (~> 2.6.0)
   padrino (= 0.10.7)
   rake
   redis

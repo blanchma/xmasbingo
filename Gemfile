@@ -7,6 +7,7 @@ source :rubygems
 # Project requirements
 gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
+gem 'minitest', "~>2.6.0", :require => "minitest/autorun", :group => "test"
 
 # Component requirements
 gem 'erubis', "~> 2.7.0"

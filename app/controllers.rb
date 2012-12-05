@@ -6,7 +6,9 @@ Xmasbingo.controllers  do
   end
 
   get "bingo" do
-    Bingo.new(params[:name]).toss
+    target = Bingo.new(params[:name]).toss
+    puts "[Bingo] Target for #{params[:name]} is #{target}"
+    target
   end
 
 end

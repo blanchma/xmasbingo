@@ -1,7 +1,7 @@
 class Bingo
-  PARTAKERS              = ['Barbara','Matias','Ricardo','Melina','Juan','Stella','Victoria']
+  PARTAKERS              = ['Barbara','Matias','Ricardo','Melina','Juan','Stella','Vicky']
   NOT_ALLOWED_MATCHS    =   (not_allowed = { 'Barbara' => 'Matias',
-                                             'Ricardo' => 'Victoria',
+                                             'Ricardo' => 'Vicky',
                                              'Melina' => 'Juan',
                                              'Stella' => 'Stella'}).merge(not_allowed.invert)
 
@@ -14,7 +14,7 @@ class Bingo
 
     #Remove partakers that were already tossed
     REDIS.keys.each do |key|
-      REDIS.srem "targets", key if key != "targets"
+      REDIS.srem "targets", REDIS.get(key) if key != "targets"
     end
   end
 
@@ -63,8 +63,8 @@ class Bingo
 
   def find_partaker
     partaker = PARTAKERS.select do |partaker|
-      break partaker if @name =~ Regexp.new(partaker,true)
+      @name =~ Regexp.new(partaker,true)
     end
-    partaker
+    partaker.first
   end
 end

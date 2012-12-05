@@ -1,7 +1,7 @@
 class Bingo
-  PARTAKERS              = ['Barbara','Matias','Ricardo','Melina','Juan','Stella','Victoria']
+  PARTAKERS              = ['Barbara','Matias','Ricardo','Melina','Juan','Stella','Vicky']
   NOT_ALLOWED_MATCHS    =   (not_allowed = { 'Barbara' => 'Matias',
-                                             'Ricardo' => 'Victoria',
+                                             'Ricardo' => 'Vicky',
                                              'Melina' => 'Juan',
                                              'Stella' => 'Stella'}).merge(not_allowed.invert)
 

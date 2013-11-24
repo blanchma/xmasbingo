@@ -7,6 +7,9 @@ class Bingo
 
   def self.init
     puts "Initialize Bingo"
+    #Remove all partakers
+    REDIS.del "targets"
+
     #Add all the partakers
     PARTAKERS.each do |partaker|
       REDIS.sadd "targets", partaker

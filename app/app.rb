@@ -1,9 +1,14 @@
 class Xmasbingo < Padrino::Application
+  set :protection, :except => :frame_options
   register Padrino::Rendering
   register Padrino::Mailer
   register Padrino::Helpers
 
   enable :sessions
+
+  use OmniAuth::Builder do
+    provider :facebook, '406506619452601','66e2266a5dfd8a097e2387eadb81998b'
+  end
 
   ##
   # Caching support

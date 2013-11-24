@@ -8,6 +8,7 @@ source :rubygems
 gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'minitest', "~>2.6.0", :require => "minitest/autorun", :group => "test"
+gem 'omniauth-facebook'
 
 # Component requirements
 gem 'erubis', "~> 2.7.0"
@@ -18,8 +19,9 @@ gem 'json'
 # Test requirements
 
 # Padrino Stable Gem
-gem 'padrino', '0.10.7'
-gem 'mini_fb'
+gem 'padrino'
+gem 'shotgun'
+#gem 'mini_fb'
 
 # Or Padrino Edge
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'

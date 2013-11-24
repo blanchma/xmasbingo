@@ -1,7 +1,9 @@
 ---
-:orm: ohm
+:orm: activerecord
 :test: none
 :mock: none
 :script: jquery
 :renderer: erb
 :stylesheet: none
+:namespace: xmasbingo
+:migration_format: number

@@ -1,30 +1,13 @@
-# Server requirements
-# gem 'thin' # or mongrel
-# gem 'trinidad', :platform => 'jruby'
-
-# Project requirements
-gem 'activerecord'
+source 'https://rubygems.org'
+gem 'activerecord', '>= 3.1', :require => 'active_record'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'minitest', "~>2.6.0", :require => "minitest/autorun", :group => "test"
 gem 'omniauth-facebook'
-
-# Component requirements
 gem 'erubis', "~> 2.7.0"
 #gem 'ohm-contrib', :require => "ohm/contrib"
-gem 'redis'
+#gem 'redis'
 gem 'json'
-
-# Test requirements
-
-# Padrino Stable Gem
 gem 'padrino'
 gem 'shotgun'
 #gem 'mini_fb'
-
-# Or Padrino Edge
-# gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
-
-# Or Individual Gems
-# %w(core gen helpers cache mailer admin).each do |g|
-#   gem 'padrino-' + g, '0.10.7'
-# end
+gem 'pg'

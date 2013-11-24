@@ -1,4 +1,5 @@
 class Xmasbingo < Padrino::Application
+    use ActiveRecord::ConnectionAdapters::ConnectionManagement
   set :protection, :except => :frame_options
   set :inline_templates, true
 

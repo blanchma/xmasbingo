@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: xmas
+  username: local_root
+  pool: 5
+  timeout: 5000

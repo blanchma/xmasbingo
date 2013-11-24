@@ -1,7 +1,8 @@
 class Xmasbingo < Padrino::Application
   set :protection, :except => :frame_options
+  set :inline_templates, true
+
   register Padrino::Rendering
-  register Padrino::Mailer
   register Padrino::Helpers
 
   enable :sessions

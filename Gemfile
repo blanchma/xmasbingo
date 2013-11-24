@@ -1,11 +1,9 @@
-source :rubygems
-
 # Server requirements
 # gem 'thin' # or mongrel
 # gem 'trinidad', :platform => 'jruby'
 
 # Project requirements
-gem 'rake'
+gem 'activerecord'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'minitest', "~>2.6.0", :require => "minitest/autorun", :group => "test"
 gem 'omniauth-facebook'
